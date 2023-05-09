@@ -5,19 +5,20 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('user', '0002_alter_follower_followed_by'),
+        ("user", "0002_alter_follower_followed_by"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='follower',
-            name='followed_by',
+            model_name="follower",
+            name="followed_by",
         ),
         migrations.AddField(
-            model_name='follower',
-            name='followed_by',
-            field=models.ManyToManyField(null=True, related_name='followers', to=settings.AUTH_USER_MODEL),
+            model_name="follower",
+            name="followed_by",
+            field=models.ManyToManyField(
+                null=True, related_name="followers", to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

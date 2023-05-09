@@ -4,8 +4,7 @@ from test_api import settings
 
 class Post(models.Model):
     content = models.TextField()
-    posted_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    posted_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     followed_by = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="followed"
     )
@@ -20,9 +19,7 @@ class Like(models.Model):
         DISLIKE = "👎"
 
     value = models.CharField(max_length=50, choices=LikeChoice.choices)
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="likes"
-    )
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="likes")
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="likes"
     )
@@ -36,9 +33,7 @@ class Like(models.Model):
 
 class Comment(models.Model):
     value = models.CharField(max_length=50)
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="comments"
-    )
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments"
     )

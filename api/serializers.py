@@ -18,40 +18,20 @@ class FollowerDetailSerializer(serializers.ModelSerializer):
 class FollowerListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follower
-        fields = (
-            "id",
-            "username",
-            "email",
-            "first_name",
-            "last_name",
-            "image"
-        )
-        read_only_fields = (
-            "email",
-            "first_name",
-            "last_name",
-            "image"
-        )
+        fields = ("id", "username", "email", "first_name", "last_name", "image")
+        read_only_fields = ("email", "first_name", "last_name", "image")
 
 
 class LikeListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = (
-            "id",
-            "post",
-            "value",
-            "user")
+        fields = ("id", "post", "value", "user")
 
 
 class CommentListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = (
-            "id",
-            "post",
-            "value",
-            "user")
+        fields = ("id", "post", "value", "user")
 
 
 class PostListSerializer(serializers.ModelSerializer):
@@ -61,11 +41,7 @@ class PostListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ("id",
-                  "content",
-                  "likes_count",
-                  "followers",
-                  "comments")
+        fields = ("id", "content", "likes_count", "followers", "comments")
 
     def get_likes_count(self, obj):
         return obj.likes.count()
@@ -86,11 +62,4 @@ class PostDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = (
-            "id",
-            "posted_by",
-            "content",
-            "comments",
-            "likes",
-            "followed_by"
-        )
+        fields = ("id", "posted_by", "content", "comments", "likes", "followed_by")

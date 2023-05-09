@@ -59,13 +59,10 @@ class User(AbstractUser):
 
 class Follower(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name="following"
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="following"
     )
     followed_by = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
-        related_name="followers"
+        settings.AUTH_USER_MODEL, related_name="followers"
     )
     username = models.CharField(max_length=63, unique=True, blank=True)
     first_name = models.CharField(max_length=63, blank=True)

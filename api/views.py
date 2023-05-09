@@ -2,10 +2,12 @@ from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from api.models import Post, Comment, Like
-from api.serializers import (CommentListSerializer,
-                             PostDetailSerializer,
-                             PostListSerializer,
-                             LikeListSerializer)
+from api.serializers import (
+    CommentListSerializer,
+    PostDetailSerializer,
+    PostListSerializer,
+    LikeListSerializer,
+)
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -35,7 +37,6 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     def get_serializer_class(self):
-
         if self.action == "list":
             return PostListSerializer
 

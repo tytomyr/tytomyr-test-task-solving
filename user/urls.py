@@ -1,8 +1,5 @@
 from django.urls import path, include
-from user.views import (CreateUserView,
-                        CreateTokenView,
-                        ManageUserView,
-                        FollowerViewSet)
+from user.views import CreateUserView, CreateTokenView, ManageUserView, FollowerViewSet
 
 from rest_framework import routers
 

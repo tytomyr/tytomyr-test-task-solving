@@ -10,7 +10,8 @@ from user.models import Follower
 from user.serializers import (
     UserSerializer,
     FollowerListSerializer,
-    FollowerDetailSerializer)
+    FollowerDetailSerializer,
+)
 
 
 class CreateUserView(generics.CreateAPIView):
